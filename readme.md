@@ -3,7 +3,7 @@
 
 Compiling LLVM on Windows is a hellish task; it is bad enough trying to build the tools, let alone a shared library (which involves much hackery and is officially unsupported). It seems the devs are scared too, since (as of writing) there is no Windows binary release for 3.3 and 3.2 is still unusably slow. Luckily, I have done the work for you and packaged them up.
 
-**Click on releases for easy donwloading.**
+[**Click on releases for easy donwloading.**](https://github.com/CRogers/LLVM-Windows-Binaries/releases)
 
 Tools
 ---
@@ -20,4 +20,4 @@ If you need a single shared library to use with projects that utilise LLVM's C A
 Compiling Windows Binaries
 ---
 
-Look at [the Compiling document](../compiling.md) for details of how to build the tools and **how to build a shared library**.
+Look at [the Compiling document](./compiling.md) for details of how to build the tools and **how to build a shared library**.

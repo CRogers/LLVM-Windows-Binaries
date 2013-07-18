@@ -8,7 +8,7 @@ Hold on to you hats, we're in for a wild ride. First let's get the necessary too
 
 Now to get the source code
 
-3. Grab the source for 3.3 from [the LLLVM download page](http://llvm.org/releases/download.html#3.3) - get the `LLVM source code` ([direct link](http://llvm.org/releases/3.3/llvm-3.3.src.tar.gz)) and put it in a new folder (say `compiling`).
+3. Grab the source for 3.3 from [the LLVM download page](http://llvm.org/releases/download.html#3.3) - get the `LLVM source code` ([direct link](http://llvm.org/releases/3.3/llvm-3.3.src.tar.gz)) and put it in a new folder (say `compiling`).
 4. Extract the `.tar.gz` to `compiling` - you'll end up with a folder called `llvm-3.3.src` containing the source.
 5. In `compiling`, make a new folder called `llvm-3.3.cmake`.
 
@@ -36,13 +36,13 @@ Choose whether you want to do a Debug or Release build - for Debug, leave as is,
 Compiling Shared Library
 ===
 
-Here's where it gets fun. Building shared libraries is not supported on Windows. Why not? The developers decided not to have `EXPORT` macros or `declspec(export)`s lying all around their code, which means there are no public symbols. So we can't just link everything together into a DLL. First, we must rebuild the symbols, put the in a `.def` file then link everything back together to a DLL.
+Here's where it gets fun. Building shared libraries is not supported on Windows. Why not? The developers decided not to have `EXPORT` macros or `declspec(export)`s lying all around their code, which means there are no public symbols. So we can't just link everything together into a DLL. First, we must rebuild the symbols, put them in a `.def` file then link everything back together to a DLL.
 
 1. Build the tools as in the section above.
 2. Open a "Developer Command Prompt for VS2012" by going to Start Menu > All Programs > Microsoft Visual Studio 2012 > Visual Studio Tools.
 2. cd to `llvm-3.3.cmake/lib/Debug`.
 3. `lib /OUT:big.lib LLVM*.lib`. This combines all the individual LLVM libs into one big one called `big.lib`.
-4. Download the `LibDefExtractor.exe` tool from [the github page](https://github.com/CRogers/LLVM-Windows-Binaries) and place it in `lib/Debug`.
+4. Download the `LibDefExtractor.exe` tool from [the github page](https://github.com/CRogers/LLVM-Windows-Binaries/tree/v3.3-dev) and place it in `lib/Debug`.
 5. `LibDefExtractor big.lib LLVM-3.3.def`. Extracts the non-C++ symbols to a DEF file called `LLVM-3.3.def`
 
 If we try and link now, it will complain about a missing `DllMain` method, so we must make one.
