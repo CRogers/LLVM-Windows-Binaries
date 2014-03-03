@@ -40,7 +40,7 @@ namespace LibDefExtractor
 
                 var state = State.BeforeSymbols;
                 var done = false;
-                var i = 1;
+                //var i = 1;
 
                 while (!sr.EndOfStream && !done) {
                     var l = sr.ReadLine();
